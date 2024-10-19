@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "909835060709",
+    "project_id": "garden-glory-3c52f",
+    "storage_bucket": "garden-glory-3c52f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:909835060709:android:90c2552e727def25361b0c",
+        "android_client_info": {
+          "package_name": "com.example.gardenglory"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDGMxhSWjqagSX1CGC1ySIKWVpTzncWK4M"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
