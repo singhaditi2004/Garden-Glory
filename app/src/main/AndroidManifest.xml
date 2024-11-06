@@ -13,6 +13,10 @@
         android:theme="@style/Theme.GardenGlory"
         tools:targetApi="31">
         <activity
+            android:name=".Homepage"
+            android:exported="false"
+            android:theme="@style/Theme.GardenGlory" />
+        <activity
             android:name=".Splash_Screen"
             android:exported="true">
             <intent-filter>
@@ -23,9 +27,7 @@
         </activity>
         <activity
             android:name=".MainActivity"
-            android:exported="true">
-
-        </activity>
+            android:exported="true" />
 
         <meta-data
             android:name="preloaded_fonts"
