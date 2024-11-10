@@ -11,43 +11,37 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import java.util.List;
 
-public class CarouselAdapter extends RecyclerView.Adapter<CarouselAdapter.ViewHolder> {
+public class CarouselAdapter extends RecyclerView.Adapter<CarouselAdapter.CarouselViewHolder> {
 
-    private List<CarouselItem> itemList;
-    private Context context;
+    private List<Integer> imageList;
 
-    public CarouselAdapter(Context context, List<CarouselItem> itemList) {
-        this.context = context;
-        this.itemList = itemList;
+    public CarouselAdapter(List<Integer> imageList) {
+        this.imageList = imageList;
     }
 
     @NonNull
     @Override
-    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(context).inflate(R.layout.item_carousel, parent, false);
-        return new ViewHolder(view);
+    public CarouselViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_carousel, parent, false);
+        return new CarouselViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        CarouselItem item = itemList.get(position);
-        holder.textView.setText(item.getTitle());
-        holder.imageView.setImageResource(item.getImageResId());
+    public void onBindViewHolder(@NonNull CarouselViewHolder holder, int position) {
+        holder.imageView.setImageResource(imageList.get(position));
     }
 
     @Override
     public int getItemCount() {
-        return itemList.size();
+        return imageList.size();
     }
 
-    public static class ViewHolder extends RecyclerView.ViewHolder {
+    static class CarouselViewHolder extends RecyclerView.ViewHolder {
         ImageView imageView;
-        TextView textView;
 
-        public ViewHolder(View itemView) {
+        public CarouselViewHolder(@NonNull View itemView) {
             super(itemView);
             imageView = itemView.findViewById(R.id.imageView);
-            textView = itemView.findViewById(R.id.textView);
         }
     }
 }
