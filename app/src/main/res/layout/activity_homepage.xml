@@ -7,21 +7,75 @@
     android:background="@color/white"
     tools:context=".Homepage">
 
-    <!-- ViewPager2 occupying a fixed height of 150dp -->
-    <androidx.viewpager2.widget.ViewPager2
-        android:id="@+id/viewPager"
+    <!-- ScrollView to allow scrolling for the content inside it -->
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="@dimen/_150sdp"
-    android:layout_alignParentTop="true" />
+        android:layout_height="match_parent">
 
-    <!-- Indicator layout positioned below the ViewPager2 -->
-    <LinearLayout
-        android:id="@+id/indicatorLayout"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_below="@id/viewPager"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="16dp"
-        android:gravity="center" />
+        <!-- RelativeLayout as the single child of the ScrollView -->
+        <RelativeLayout
+            android:id="@+id/scrollRel"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <!-- First RelativeLayout section (Toolbar) -->
+            <RelativeLayout
+                android:id="@+id/relativeOne"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:background="@color/tooltipgreen"
+                android:padding="@dimen/_5sdp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="@dimen/_10sdp"
+                    android:fontFamily="@font/inknut_antiqua_semibold"
+                    android:text="@string/app_name"
+                    android:textColor="@color/white"
+                    android:textSize="@dimen/_18sdp"
+                    android:textStyle="bold" />
+
+            </RelativeLayout>
+
+            <!-- HorizontalScrollView below the first RelativeLayout -->
+            <HorizontalScrollView
+                android:id="@+id/horizontalScrollView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/relativeOne"
+                android:foregroundGravity="center_vertical">
+
+                <!-- Place your content for Horizontal Scroll here -->
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <!-- Add buttons or other items here for the scroll view -->
+                </LinearLayout>
+
+            </HorizontalScrollView>
+
+            <!-- ViewPager2 occupying a fixed height of 150dp -->
+            <androidx.viewpager2.widget.ViewPager2
+                android:id="@+id/viewPager"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/_150sdp"
+                android:layout_below="@id/horizontalScrollView"
+                android:layout_marginTop="8dp" />
+
+            <!-- Indicator layout positioned below the ViewPager2 -->
+            <LinearLayout
+                android:id="@+id/indicatorLayout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/viewPager"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="16dp"
+                android:gravity="center"
+                android:orientation="horizontal" />
+
+        </RelativeLayout>
+    </ScrollView>
 </RelativeLayout>
